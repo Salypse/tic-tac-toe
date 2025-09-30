@@ -1,0 +1,109 @@
+:root {
+    --primary-color: #f4a261;
+    --secondary-color: #264653;
+
+    --player-x-color: #2a9d8f;
+    --player-o-color: #e9c46a;
+
+    --primary-color-light: #f5b784;
+    --primary-color-dark: #ee9044;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto auto 1fr;
+}
+
+.header {
+    background-color: var(--secondary-color);
+}
+
+.header > p {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    padding: 1rem;
+
+    justify-self: center;
+}
+
+.content {
+    background-color: var(--primary-color);
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.game-text-container {
+    background-color: var(--primary-color);
+    padding: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.game-text-container > * {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+
+    margin-bottom: 0.5rem;
+}
+
+.game-text-container button {
+    background-color: transparent;
+    padding: 0.5rem;
+
+    border: 0.5rem solid var(--secondary-color);
+    border-radius: 1rem;
+}
+
+.game-text-container button:hover {
+    cursor: pointer;
+    background-color: var(--primary-color-light);
+}
+
+.game-text-container button:active {
+    background-color: var(--primary-color-dark);
+}
+
+.game-container {
+    justify-self: center;
+    padding: 1rem;
+
+    background-color: var(--secondary-color);
+    width: 65vh;
+    height: 65vh;
+
+    border: 0.75rem solid var(--secondary-color);
+    border-radius: 1rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.game-container button{
+    background-color: var(--primary-color);
+    border: transparent;
+}
+
+.game-container button:hover {
+    background-color: var(--primary-color-light);
+}
+
+.game-container button:active {
+    background-color: var(--primary-color-dark);
+}
