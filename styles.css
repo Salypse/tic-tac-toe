@@ -2,9 +2,6 @@
     --primary-color: #f4a261;
     --secondary-color: #264653;
 
-    --player-x-color: #2a9d8f;
-    --player-o-color: #d8a421;
-
     --primary-color-light: #f5b784;
     --primary-color-dark: #ee9044;
 }
@@ -83,8 +80,8 @@ body {
     padding: 1rem;
 
     background-color: var(--secondary-color);
-    width: clamp(55vh, 60vh, 65vh);
-    height: clamp(55vh, 60vh, 65vh);
+    width: 65vh;
+    height: 65vh;
 
     border: 0.75rem solid var(--secondary-color);
     border-radius: 1rem;
@@ -109,5 +106,5 @@ body {
 }
 
 .grid-item {
-    font-size: clamp(1rem, 10vw, 8rem)
+    font-size: 8rem;
 }
