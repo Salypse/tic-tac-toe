@@ -3,7 +3,7 @@
     --secondary-color: #264653;
 
     --player-x-color: #2a9d8f;
-    --player-o-color: #e9c46a;
+    --player-o-color: #d8a421;
 
     --primary-color-light: #f5b784;
     --primary-color-dark: #ee9044;
@@ -77,13 +77,14 @@ body {
 .game-text-container button:active {
     background-color: var(--primary-color-dark);
 }
+
 #game-container {
     justify-self: center;
     padding: 1rem;
 
     background-color: var(--secondary-color);
-    width: 65vh;
-    height: 65vh;
+    width: clamp(55vh, 60vh, 65vh);
+    height: clamp(55vh, 60vh, 65vh);
 
     border: 0.75rem solid var(--secondary-color);
     border-radius: 1rem;
@@ -105,4 +106,8 @@ body {
 
 #game-container button:active {
     background-color: var(--primary-color-dark);
+}
+
+.grid-item {
+    font-size: clamp(1rem, 10vw, 8rem)
 }
