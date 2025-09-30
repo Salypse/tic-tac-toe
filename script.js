@@ -1,15 +1,17 @@
 function newGameDisplay() {
     const gridContainer = document.querySelector("#game-container")
     const currentPlayerText = document.querySelector(".current-player")
+    const resetGameButton = document.querySelector(".reset")
 
     /* Player 1 is 0, Player2 is 1*/
     let currentPlayer = Math.round(Math.random(1))
 
-    const player1 = newPlayer()
-    const player2 = newPlayer()
+    let player1 = newPlayer()
+    let player2 = newPlayer()
     currentPlayerText.textContent = setDefaultText()
 
     let newGrid = function() {
+        gridContainer.innerHTML = ""
         for (let i = 1; i <= 9; i++) {
             let newGridItem = document.createElement("button");
             newGridItem.textContent = ""
@@ -49,11 +51,22 @@ function newGameDisplay() {
         }
     }
 
+    resetGameButton.addEventListener("click", () => {
+        currentGame = newGrid()
+
+        player1 = newPlayer()
+        player2 = newPlayer()
+
+        currentPlayerText.textContent = setDefaultText()
+    })
+
+    let currentGame = newGrid()
+
     return {newGrid}
 }
 
 function gameController() {
-    let currentGame = newGameDisplay().newGrid()
+    
 }
 
 function newPlayer() {
@@ -62,4 +75,4 @@ function newPlayer() {
 }
 
 
-gameController()
+newGameDisplay()
