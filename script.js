@@ -27,9 +27,12 @@ function newGameDisplay() {
     }
 
     function addSelection(item) {
+        let gridItems = document.querySelectorAll(".grid-item")
+
         if (currentPlayer === 0 && !item.textContent) {
             item.textContent = "X"
             item.style.color = "#2a9d8f";
+            gameController.checkForWin(gridItems)
             /*Switch to player2 turn */
             currentPlayerText.textContent = `${player2.name}'s Turn`
             currentPlayer = 1;
@@ -37,6 +40,7 @@ function newGameDisplay() {
         else if (currentPlayer === 1 && !item.textContent) {
             item.textContent = "O"
             item.style.color = "#ecd717";
+            gameController.checkForWin(gridItems)
             /*Switch to player1 turn */
             currentPlayerText.textContent = `${player1.name}'s Turn`
             currentPlayer = 0;
@@ -60,13 +64,39 @@ function newGameDisplay() {
         currentPlayerText.textContent = setDefaultText()
     })
 
-    let currentGame = newGrid()
+    const currentGame = newGrid()
+    const gameController = newGameController()
 
     return {newGrid}
 }
 
-function gameController() {
-    
+function newGameController() {
+    let checkForWin = function(items) {
+        const winCombinations = [
+            [1,2,3],
+            [4,5,6],
+            [7,8,9],
+            [1,4,7],
+            [2,5,8],
+            [3,6,9],
+            [1,5,9],
+            [7,5,3]
+        ];
+
+        for (let i = 0; i < winCombinations.length; i++) {
+            let item1 = items[winCombinations[i][0] - 1].textContent;
+            let item2 = items[winCombinations[i][1] - 1].textContent;
+            let item3 = items[winCombinations[i][2] - 1].textContent;
+
+            if (item1 && item2 && item3) {
+                if (item1 === item2 && item2 === item3) {
+                    return true
+                }
+            }
+        }
+    }
+
+    return {checkForWin};
 }
 
 function newPlayer() {
